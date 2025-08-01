@@ -15,3 +15,36 @@ Spring Web, Spring Data JPA
 REST API
 MySQL 
 
+Route	Description
+/login	Login page
+/register	Registration page
+/home	Home page
+/product/:id	Product details page
+/profile	View/edit loggedin user profile
+/orders	View past orders
+/admin	Admin dashboard
+
+SHOPPING_BAG/
+├── Angular_ShopBag/                # Angular 17 app with PrimeNG
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/     # login, register, home, etc.
+│   │   │   │── models/ 
+│   │   │   ├── services/
+│   │   │   ├── models/   
+│   │   │   ├── guards/ 
+│   │   │   ├── pipes/
+│   │   │   ├── shared/
+│   │   │   ├── layout/          #header, footer
+│   │   │   └── app.module.ts
+├── shop-service/                 # Spring Boot Java app
+│   ├── src/main/java/
+│   │   └── com/example/
+│   │       ├── controller/
+│   │       ├── model/
+│   │       ├── service/            
+│   │       └── dto/
+│   │       └── repository/
+│   └── application.properties
+└── README.md
+
