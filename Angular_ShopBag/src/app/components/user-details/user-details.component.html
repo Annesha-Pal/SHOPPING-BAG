@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div id="card">
+  <div *ngIf="user" class="container m-2">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">{{ user.firstName }} {{ user.lastName }}</h3>
+      </div>
+
+      <div class="card-body">
+        <!-- User Info -->
+        <div class="user-details">
+          <p class="mb-2"><strong>Email:</strong> {{ user.email }}</p>
+          <p class="mb-2"><strong>Phone:</strong> {{ user.phoneNum }}</p>
+          <p class="mb-2"><strong>Status:</strong> {{ user.status }}</p>
+          <p class="mb-2"><strong>Role:</strong> {{ user.userRole }}</p>
+        </div>
+        <hr />
+        <!-- Orders Section -->
+        <h3 class="card-title">Orders</h3>
+
+        <div *ngIf="user.orders.length > 0; else noOrders">
+          <div class="ordertag">
+            <div *ngFor="let order of user.orders">
+              <div class="productDetails">
+                <strong>{{ order.id }}. {{ order.product.productName }}</strong
+                ><br />
+                Quantity: {{ order.quantity }}<br />
+                Price: {{ order.product.price | currency }}
+              </div>
+              <div>
+                <div class="totalPrice">
+                  Total:
+                  {{
+                    order.totalPrice || order.quantity * order.product.price
+                      | currency
+                  }}
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noOrders>
+          <p class="text-muted fst-italic mt-3">No orders found.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

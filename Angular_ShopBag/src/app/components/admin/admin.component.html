@@ -1,0 +1,163 @@
+<app-header></app-header>
+
+<!-- Body 1 -->
+<div class="container">
+  <div class="dashboard">
+    <div class="cardsize">
+      <div class="order">
+        <span
+          style="font-size: 1.3rem; color: rgb(65, 61, 61); font-weight: bold"
+          >Order</span
+        >
+        <i
+          class="bi bi-cart-check-fill"
+          style="font-size: 1.5rem; color: #007ad9"
+        ></i>
+      </div>
+      <div class="value">
+        <span style="font-weight: bold; color: #57c785">{{
+          summary.totalOrders
+        }}</span>
+
+        <span> Total orders</span>
+      </div>
+    </div>
+
+    <div class="cardsize">
+      <div class="order">
+        <span
+          style="font-size: 1.3rem; color: rgb(65, 61, 61); font-weight: bold"
+          >Users</span
+        >
+        <i
+          class="bi bi-person-plus"
+          style="font-size: 1.5rem; color: #007ad9"
+        ></i>
+      </div>
+      <div class="value">
+        <span style="font-weight: bold; color: #57c785">{{
+          summary.totalUsers
+        }}</span>
+
+        <span> Registered users</span>
+      </div>
+    </div>
+
+    <div class="cardsize">
+      <div class="order">
+        <span
+          style="font-size: 1.3rem; color: rgb(65, 61, 61); font-weight: bold"
+          >Products</span
+        >
+        <i
+          class="bi bi-chat-dots-fill"
+          style="font-size: 1.5rem; color: #007ad9"
+        ></i>
+      </div>
+      <div class="value">
+        <span style="font-weight: bold; color: #57c785">{{
+          summary.totalProducts
+        }}</span>
+
+        <span> Total products</span>
+      </div>
+    </div>
+  </div>
+
+  <!--Search for Users-->
+  <form
+    *ngIf="formGroup"
+    [formGroup]="formGroup"
+    (ngSubmit)="onFilterSubmit()"
+    id="filter"
+  >
+    <div class="card">
+      <input
+        type="text"
+        pInputText
+        pTooltip="Enter your name"
+        tooltipEvent="focus"
+        placeholder="Name"
+        formControlName="name"
+      />
+    </div>
+
+    <div class="card">
+      <p-dropdown
+        formControlName="selectedStatus"
+        [options]="status"
+        optionLabel="name"
+        placeholder="Select Status"
+      />
+    </div>
+    <div class="card">
+      <p-button
+        type="submit"
+        pTooltip="Confirm to proceed"
+        [showDelay]="1000"
+        [hideDelay]="300"
+        label="Save"
+      />
+    </div>
+  </form>
+
+  <div class="card">
+    <p-table
+      [value]="users"
+      [paginator]="true"
+      [rows]="5"
+      [responsiveLayout]="'scroll'"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [rowsPerPageOptions]="[5, 10, 20]"
+      [loading]="loading"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 25%" pSortableColumn="firstName">
+            Name <p-sortIcon field="firstName" />
+          </th>
+          <th style="width: 25%" pSortableColumn="email">
+            Email <p-sortIcon field="email" />
+          </th>
+          <th style="width: 25%" pSortableColumn="phoneNum">
+            Phone Number <p-sortIcon field="phoneNum" />
+          </th>
+          <th style="width: 25%" pSortableColumn="status">
+            Status <p-sortIcon field="status" />
+          </th>
+          <th style="width: 25%" pSortableColumn="userRole">
+            Role <p-sortIcon field="userRole" />
+          </th>
+          <!-- <th style="width: 25%">Edit</th> -->
+          <th style="width: 25%">Delete</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td class="clickable-name" (click)="goToUser(user.id)">
+            {{ user.firstName }} {{ user.lastName }}
+          </td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phoneNum | phoneFormat }}</td>
+          <td>{{ user.status }}</td>
+          <td>{{ user.userRole }}</td>
+
+          <td>
+            <i
+              class="bi bi-trash"
+              style="color: red; font-size: 1.5rem; cursor: pointer"
+              (click)="deleteUser(user.id)"
+            ></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <!--Bar chart for login User & Admin-->
+  <h3 class="loginData">Login <span>Data</span></h3>
+  <div class="card">
+    <p-chart type="line" [data]="data" [options]="options" />
+  </div>
+</div>
+
+<app-footer></app-footer>

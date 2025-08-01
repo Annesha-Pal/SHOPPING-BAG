@@ -1,0 +1,105 @@
+header {
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  width: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.233);
+  top: 0;
+  margin: 0;
+  z-index: 10;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.logoimg {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.logo {
+  align-items: center;
+  text-align: center;
+  margin-left: 40px;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.logging {
+  margin-right: 100px;
+  display: flex;
+  justify-content: right;
+}
+
+.logreg {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.p-button {
+  font-weight: bold;
+}
+
+h2 {
+  color: #007ad9;
+}
+.display-firstName {
+  color: #007ad9;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  align-items: center;
+  gap: 1rem;
+}
+.menu {
+  top: 10px;
+}
+.afterLogin {
+  width: 350px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.infobtn {
+  margin-top: 13px;
+  display: inline-block;
+}
+@media (max-width: 815px) {
+  .nav {
+    padding: 5px;
+  }
+  .logo {
+  }
+  header {
+    width: 100%;
+  }
+  .logo h2 {
+    display: none !important;
+  }
+  /* .display-firstName {
+    display: none !important;
+  } */
+}
+
+@media (max-width: 530px) {
+  header {
+    width: auto;
+  }
+  .nav {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .logo h2 {
+    display: none !important;
+  }
+  .afterLogin {
+    width: auto;
+    gap: 5px;
+  }
+}

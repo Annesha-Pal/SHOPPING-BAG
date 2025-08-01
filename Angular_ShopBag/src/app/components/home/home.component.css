@@ -1,0 +1,205 @@
+/* html,
+body {
+  height: 100%;
+  margin: 0%;
+  font: "Poppins";
+} */
+.container {
+  width: auto;
+  height: auto;
+}
+.opening {
+  width: 100%;
+  border: none;
+  top: 0%;
+  object-fit: contain;
+  height: 500px;
+}
+#carousal-picture {
+  height: 400px;
+  width: 700px;
+}
+
+.brands {
+  height: auto;
+  width: auto;
+  display: flex;
+  margin: 10px;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+/* Limit image height and width, and ensure it fits the container */
+#carousal-picture img {
+  margin-top: 30px;
+  margin-left: 10px;
+  height: 500px;
+  object-fit: contain;
+}
+.p-carousel-item > div {
+  margin: 0 1rem;
+  display: flex;
+}
+
+#carousal-picture {
+  margin-bottom: 1rem;
+}
+.custom-carousel ::ng-deep .p-carousel-item {
+  padding: 0 10px; /* Space between each item */
+  box-sizing: border-box;
+}
+/* Ensure the card does not overflow */
+.border-1 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.w-full {
+  width: full;
+}
+/* Carousel item container */
+.p-carousel-item {
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.brand-logo img {
+  width: 70px;
+}
+
+/* .Shop-more {
+  height: 300px;
+} */
+h2 {
+  text-align: center;
+  padding: 10px;
+}
+.shop-cart {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.explore {
+  margin: 15px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: whitesmoke;
+}
+
+.explore img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.explore a {
+  text-decoration: none;
+}
+
+.show-more-btn {
+  text-align: center;
+}
+
+.shop-more {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.shop-cart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-imageUrl {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.product-title {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #007ad9;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.product-title:hover {
+  color: #1c4d72;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #222;
+}
+
+.show-more-btn {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: #007ad9;
+}
+
+.quote {
+  text-align: center;
+  color: #4e4d4de3;
+  padding: 10px;
+}
+
+.quote span {
+  font-weight: 500;
+  color: #007ad9;
+}
+.FAQ {
+  padding: 5px;
+}
+.FAQ h2 {
+  color: #4e4d4de3;
+}
+
+@media (max-width: 530px) {
+  .container {
+    width: auto;
+    height: auto;
+  }
+  .brands {
+    height: auto;
+    width: auto;
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+}

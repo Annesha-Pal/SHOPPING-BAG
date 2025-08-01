@@ -1,0 +1,79 @@
+.card {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.container {
+  width: auto;
+  height: auto;
+}
+td i {
+  display: flex;
+}
+#filter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.clickable-name {
+  cursor: pointer;
+  color: rgb(19, 22, 119);
+  text-decoration: none;
+}
+
+.clickable-name:hover {
+  text-decoration: underline;
+  color: rgb(173, 21, 21);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.cardsize {
+  background: white;
+  width: auto;
+  height: auto;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.order {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.value {
+  padding: 10px;
+  color: rgb(65, 61, 61);
+}
+@media (max-width: 693px) {
+  .container {
+    width: auto;
+    height: auto;
+  }
+  .dashboard {
+    width: auto;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .card input {
+    width: auto;
+    height: auto;
+  }
+}
+.loginData {
+  color: #007ad9;
+  text-align: center;
+}
+.loginData span {
+  color: rgb(237, 55, 173);
+}

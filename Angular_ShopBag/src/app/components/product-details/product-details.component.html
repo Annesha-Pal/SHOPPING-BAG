@@ -1,0 +1,73 @@
+<app-header></app-header>
+<p-toast></p-toast>
+<body>
+  <div class="backBtn">
+    <p-button
+      label="Back"
+      styleClass="p-button-primary"
+      [rounded]="true"
+      (onClick)="goHome()"
+    ></p-button>
+  </div>
+
+  <div *ngIf="product" class="product-details">
+    <div class="product-header">
+      <img
+        [src]="product.imageUrl"
+        [alt]="product.productTitle"
+        class="product-imageUrl"
+        style="cursor: pointer"
+      />
+
+      <div class="product-info">
+        <h1>{{ product.productTitle }}</h1>
+        <p><strong>Name:</strong> {{ product.productName }}</p>
+        <p><strong>Brand:</strong> {{ product.brand }}</p>
+        <p><strong>Category:</strong> {{ product.productCategory }}</p>
+        <p>
+          <strong>Quantity:</strong> {{ product.quantity }}
+          <span style="color: green">(In Stock)</span>
+        </p>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <br />
+      </div>
+      <div class="quality-wrapper">
+        <div class="wrapper">
+          <p-inputNumber
+            [(ngModel)]="quantity"
+            class="incdec"
+            (onBlur)="onQuantityChange()"
+            [showButtons]="true"
+            buttonLayout="horizontal"
+            [min]="1"
+            [max]="product?.quantity"
+            inputId="horizontal"
+            decrementButtonClass="p-button-danger"
+            incrementButtonClass="p-button-success"
+            incrementButtonIcon="pi pi-plus"
+            decrementButtonIcon="pi pi-minus"
+          ></p-inputNumber>
+        </div>
+
+        <div class="buy">
+          <p-button
+            (click)="buyNow()"
+            class="buyNow-btn"
+            [rounded]="true"
+            severity="success"
+          >
+            Buy Now
+          </p-button>
+        </div>
+        <div class="TotalPrice">
+          <h3><strong>Total Price:</strong> ${{ product.price * quantity }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!product">
+    <p>Loading product details...</p>
+  </div>
+</body>
+
+<app-footer></app-footer>

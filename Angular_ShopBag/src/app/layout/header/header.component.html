@@ -1,0 +1,74 @@
+<header>
+  <div class="nav">
+    <div class="logo">
+      <img
+        src="https://tse2.mm.bing.net/th?id=OIP.-c3-2zkixhfDOk7SWtEa1wHaE8&pid=Api&P=0&h=180"
+        alt="Business"
+        class="logoimg"
+        style="cursor: pointer"
+        [routerLink]="'home'"
+      />
+      <h2>Shop Bag</h2>
+    </div>
+    <div class="logging">
+      <div class="logreg" *ngIf="isLoggedIn == false">
+        <p-button
+          type="button"
+          label="Login"
+          [rounded]="true"
+          class="p-button-info"
+          (click)="onLogin()"
+        >
+        </p-button>
+        <p-button
+          type="button"
+          label="Register"
+          [rounded]="true"
+          class="p-button-info"
+          (click)="onRegister()"
+        ></p-button>
+        <!-- <div id="welcomeMsg" style="display: none"></div> -->
+      </div>
+      <div class="afterLogin" *ngIf="isLoggedIn">
+        <div class="display-firstName">
+          <h3>
+            Welcome,
+            <span style="color: rgba(48, 45, 45, 0.755)">{{ firstName }}</span>
+          </h3>
+        </div>
+
+        <i
+          class="bi bi-person"
+          style="
+            font-size: 1.5rem;
+            color: #007ad9;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+            margin-top: 20px;
+            display: inline-block;
+            box-shadow: none;
+          "
+          [routerLink]="'/profile'"
+        ></i>
+
+        <p-menu
+          #menu
+          [model]="userMenu"
+          [popup]="true"
+          class="menuItems"
+        ></p-menu>
+
+        <p-button
+          type="button"
+          label="Menu"
+          [rounded]="true"
+          icon="pi pi-bars"
+          class="infobtn"
+          (click)="menu.toggle($event)"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,48 @@
+#card .card {
+  border-radius: 10px;
+}
+
+#card .card-body p {
+  margin-bottom: 0.5rem;
+}
+
+#card .badge {
+  padding: 0.6rem 1rem;
+}
+
+#card {
+  justify-content: center;
+  margin: 30px;
+  width: auto;
+  border-radius: 8px;
+  height: auto;
+
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.17);
+}
+
+.card h3 {
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(127, 255, 212, 0.653);
+}
+.totalPrice {
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgba(48, 155, 19, 0.87);
+  top: 10px;
+  cursor: pointer;
+}
+.ordertag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+.productDetails {
+  margin: 10px;
+}
+.user-details {
+  text-align: center;
+}

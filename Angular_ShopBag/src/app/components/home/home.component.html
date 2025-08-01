@@ -1,0 +1,154 @@
+<app-header></app-header>
+<div class="container">
+  <div class="opening">
+    <div class="card-carousal">
+      <div class="card">
+        <p-carousel
+          [value]="products"
+          [numVisible]="3"
+          [numScroll]="1"
+          [responsiveOptions]="responsiveOptions"
+          [circular]="true"
+          [autoplayInterval]="3000"
+        >
+          <ng-template let-product pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 p-3">
+              <div class="mb-3">
+                <div class="relative mx-auto" id="carousal-picture">
+                  <img
+                    [src]="product.image"
+                    [alt]="product.productTitle"
+                    class="w-full"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </div>
+  <div class="brands">
+    <div class="brand-logo">
+      <img
+        src="https://logos-world.net/wp-content/uploads/2020/04/HM-Logo-1999-present.jpg"
+        alt="H&M"
+      />
+    </div>
+    <div class="brand-logo">
+      <img
+        src="https://sp.yimg.com/ib/th?id=OIP.l5d6wH-I5Esb05VEwoxpsQAAAA&pid=Api&w=148&h=148&c=7&dpr=2&rs=1"
+        alt="Loreal"
+      />
+    </div>
+    <div class="brand-logo">
+      <img
+        src="https://up.yimg.com/ib/th?id=OIP.JJvfkO0l7yuXpqpcI9mUqQHaFj&pid=Api&rs=1&c=1&qlt=95&w=106&h=79"
+        alt="Samsung"
+      />
+    </div>
+    <div class="brand-logo">
+      <img
+        src="https://up.yimg.com/ib/th?id=OIP.vYoj9Q8KUX4XQ3G9P1C57gHaEK&pid=Api&rs=1&c=1&qlt=95&w=203&h=114"
+        alt="dyson"
+      />
+    </div>
+    <div class="brand-logo">
+      <img
+        src="https://up.yimg.com/ib/th?id=OIP.8W5fu68e4osyFhD5ahZrkQHaEK&pid=Api&rs=1&c=1&qlt=95&w=203&h=114"
+        alt="American-Tourister"
+      />
+    </div>
+    <div class="brand-logo">
+      <img
+        src="https://up.yimg.com/ib/th?id=OIP.ZRONvRllaSV6Dzv52zNF3gHaEK&pid=Api&rs=1&c=1&qlt=95&w=219&h=123"
+        alt="Nike"
+      />
+    </div>
+    <div class="brand-logo">
+      <img
+        src="https://up.yimg.com/ib/th?id=OIP.xNooNb8qvBDF9_y6pyPIoQHaEK&pid=Api&rs=1&c=1&qlt=95&w=181&h=101 "
+        alt="Apple"
+      />
+    </div>
+  </div>
+  <div class="shop-more">
+    <h2 class="section-title" style="color: #4e4d4de3">Newest Arrivals</h2>
+
+    <div class="shop-cart">
+      <div class="product-card" *ngFor="let product of visibleProducts">
+        <img
+          class="product-imageUrl"
+          [src]="product.imageUrl"
+          alt="{{ product.productTitle }}"
+        />
+        <h3 class="product-title">
+          {{ product.productTitle }}
+        </h3>
+        <p class="product-price">$ {{ product.price }}</p>
+        <a (click)="viewProductDetails(product)" style="cursor: pointer"
+          >See details</a
+        >
+      </div>
+    </div>
+
+    <div class="show-more-btn" *ngIf="!showAll">
+      <button
+        pButton
+        type="button"
+        label="Show More"
+        class="p-button-rounded p-button-outlined"
+        (click)="onShowMore()"
+      ></button>
+    </div>
+  </div>
+
+  <div class="quote">
+    <h2>“A satisfied customer is the best business strategy of all.”</h2>
+    <span>~ Michael LeBoeuf</span>
+  </div>
+
+  <div class="accordian">
+    <div class="FAQ"><h2>Frequently Asked questions</h2></div>
+    <div class="card flex justify-content-center">
+      <p-accordion>
+        <p-accordionTab header="1. What payment methods do you accept?">
+          <p>
+            We accept major credit/debit cards (Visa, MasterCard, American
+            Express), PayPal, UPI, and net banking. All transactions are
+            securely processed.
+          </p>
+        </p-accordionTab>
+        <p-accordionTab header="2. How do I track my order?">
+          <p>
+            After placing your order, you will receive a confirmation email with
+            a tracking link. You can also track your order from your account
+            under "My Orders."
+          </p>
+        </p-accordionTab>
+        <p-accordionTab header="3. Can I cancel or modify my order?">
+          <p>
+            Orders can be canceled or modified within 1 hour of placement. After
+            that, the order may already be processed or shipped. Contact our
+            support team as soon as possible.
+          </p>
+        </p-accordionTab>
+        <p-accordionTab header="4. What is your return policy?">
+          <p>
+            We offer a 7-day return window from the date of delivery. Items must
+            be unused, in original packaging, and accompanied by a receipt or
+            proof of purchase.
+          </p>
+        </p-accordionTab>
+        <p-accordionTab header="5. How long will delivery take?">
+          <p>
+            Standard delivery usually takes 3–7 business days, depending on your
+            location. Expedited shipping options are also available at checkout.
+          </p>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

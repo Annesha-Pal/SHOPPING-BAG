@@ -1,0 +1,169 @@
+<app-header></app-header>
+<p-toast></p-toast>
+
+<div class="mainprofile">
+  <div class="profileDetails">
+    <h2>Profile Details</h2>
+
+    <div *ngIf="loading">Loading...</div>
+
+    <form
+      *ngIf="!loading && user"
+      [formGroup]="userForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+      class="profile-form"
+    >
+      <div class="contentProfile">
+        <div class="formDivider">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input
+              id="firstName"
+              type="text"
+              formControlName="firstName"
+              class="form-control"
+            />
+            <span
+              *ngIf="
+                userForm.get('firstName')?.hasError('required') &&
+                userForm.get('firstName')?.touched
+              "
+              class="p-error"
+            >
+              * First name is required
+            </span>
+            <span
+              *ngIf="
+                userForm.get('firstName')?.hasError('whitespace') &&
+                userForm.get('firstName')?.touched
+              "
+              class="p-error"
+            >
+              * First name cannot be empty or just spaces
+            </span>
+          </div>
+
+          <!-- Last Name -->
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input
+              id="lastName"
+              type="text"
+              formControlName="lastName"
+              class="form-control"
+            />
+            <span
+              *ngIf="
+                userForm.get('lastName')?.hasError('required') &&
+                userForm.get('lastName')?.touched
+              "
+              class="p-error"
+            >
+              * Last name is required
+            </span>
+            <span
+              *ngIf="
+                userForm.get('lastName')?.hasError('whitespace') &&
+                userForm.get('lastName')?.touched
+              "
+              class="p-error"
+            >
+              * Last name cannot be empty or just spaces
+            </span>
+          </div>
+
+          <!-- Role (read-only) -->
+          <div class="form-group">
+            <label for="userRole">Role:</label>
+            <input
+              id="userRole"
+              type="text"
+              formControlName="userRole"
+              readonly
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="formDivider">
+          <!-- Email (read-only) -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              readonly
+              class="form-control"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phoneNum">Phone:</label>
+            <input
+              id="phoneNum"
+              type="tel"
+              maxlength="10"
+              formControlName="phoneNum"
+              class="form-control"
+            />
+            <span
+              *ngIf="
+                userForm.get('phoneNum')?.hasError('required') &&
+                userForm.get('phoneNum')?.touched
+              "
+              class="p-error"
+            >
+              * Phone number is required
+            </span>
+            <span
+              *ngIf="
+                userForm.get('phoneNum')?.hasError('whitespace') &&
+                userForm.get('phoneNum')?.touched
+              "
+              class="p-error"
+            >
+              * Phone number cannot be empty or just spaces
+            </span>
+          </div>
+
+          <!-- Status (read-only) -->
+          <div class="form-group">
+            <label for="status">Status:</label>
+            <input
+              id="status"
+              type="text"
+              formControlName="status"
+              readonly
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submitBtn">
+        <p-button
+          label="Back"
+          styleClass="p-button-primary"
+          [rounded]="true"
+          (onClick)="goHome()"
+        ></p-button>
+        <p-button
+          type="submit"
+          label="Save Changes"
+          styleClass="p-button-success btn-save"
+          [rounded]="true"
+          [disabled]="userForm.invalid"
+        ></p-button>
+      </div>
+    </form>
+
+    <div *ngIf="!loading && !user">
+      <p>User not found.</p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,103 @@
+<app-header></app-header>
+<p-toast></p-toast>
+
+<div class="container">
+  <div class="form_card">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <p-card class="login_header"
+        ><h2 class="headinglog">Login</h2>
+        <div class="login_form">
+          <div class="field">
+            <label for="email">Email <span style="color: red">*</span></label>
+            <br />
+            <br />
+            <input
+              type="email"
+              pInputText
+              formControlName="email"
+              class="w-full"
+              name="email"
+              placeholder="Enter your Email "
+            />
+            <small
+              *ngIf="email?.invalid && email?.touched"
+              class="block p-error"
+            >
+              <br />
+              <span *ngIf="email?.hasError('required')"
+                >*This is a required Field
+              </span>
+
+              <span class="error" *ngIf="email?.invalid && email?.touched"
+                >Please enter valid Email Id</span
+              >
+            </small>
+          </div>
+          <div class="field">
+            <label for="password"
+              >Password <span style="color: red">*</span></label
+            >
+            <br />
+            <br />
+            <input
+              type="password"
+              pInputText
+              formControlName="password"
+              class="w-full"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <small
+              *ngIf="
+                password?.invalid && (password?.dirty || password?.touched)
+              "
+              class="block p-error"
+            >
+              <br />
+              <span *ngIf="password?.hasError('required')"
+                >*This is a required Field
+              </span>
+
+              <span
+                class="error"
+                *ngIf="
+                  password?.invalid && (password?.dirty || password?.touched)
+                "
+                >Please enter valid password</span
+              >
+            </small>
+          </div>
+        </div>
+        <div class="button">
+          <div class="back-login">
+            <p-button
+              label="Back"
+              (click)="onBack()"
+              styleClass="w-full"
+              [rounded]="true"
+            >
+            </p-button>
+            <p-button
+              label="Sign In"
+              type="submit"
+              (click)="(onLogin)"
+              styleClass="w-full"
+              [rounded]="true"
+              [disabled]="loginForm.invalid"
+            ></p-button>
+          </div>
+          <br />
+          <div *ngIf="errorMsg" class="p-error">{{ errorMsg }}</div>
+          <div class="mt-2">
+            Not a member?
+            <a routerLink="./register" href="./register" class="reg">
+              Register</a
+            >
+          </div>
+        </div>
+      </p-card>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
